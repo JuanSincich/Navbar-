@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar container">
+        <div class="navbar_data">
+          <a href="#" class="navbar_brand"
+            ><i class="ri-planet-line"></i>Brand</a
+          >
+          <div class="nav_toggle" id="nav-toggle">
+            <i class="ri-menu-line navbar_burger"></i>
+            <i class="ri-close-line navbar_close"></i>
+          </div>
+        </div>
+        <!-- ------------- navbar menu -------------  -->
+        <div class="navbar_menu" id="navbar-menu">
+          <ul class="navbar_list">
+            <li><a href="" class="navbar_link">Home</a></li>
+
+            <li><a href="" class="navbar_link">Compañy</a></li>
+
+            <!-- ------------- dropdown 1 -------------  -->
+            <li class="dropdown_item">
+              <div class="navbar_link">
+                Analytics
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+            </li>
+
+            <li><a href="" class="navbar_link">Products</a></li>
+            <!-- ------------- dropdown 2 -------------  -->
+            <li class="dropdown_item">
+              <div class="navbar_link">
+                User
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+            </li>
+
+            <li><a href="" class="navbar_link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+:root {
+  --header-height: 3.5rem;
+
+  /* ------------- colors ------------- */
+  --black-color: #222222;
+  --white-color: #fff;
+
+  /* ------------- fonts ------------- */
+  --body-font: "Montserrat", sans-serif;
+  /* ------------- font weigth ------------- */
+  --font-semi-bold: 600;
+  --body-font: "Montserrat", sans-serif;
+  /* ------------- z-index ------------- */
+  --z-fixed: 100;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: 1rem;
+}
+
+/* ------------- css reusable classes ------------- */
+
+/* ------------- header ------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--black-color);
+  box-shadow: 0 16px 16px hsla(220, 32%, 8%, 0.3);
+  z-index: var(--z-fixed);
+}
+/* ------------- navbar ------------- */
+.navbar {
+  height: var(--header-height);
+}
+.navbar_brand,
+.navbar_burger,
+.navbar_close {
+  color: var(--white-color);
+}
+.navbar_data {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar_brand {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  font-weight: var(--font-semi-bold);
+}
+.navbar_brand i {
+  font-weight: initial;
+  font-size: 1.25rem;
+}
+.nav_toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.navbar_burger,
+.navbar_close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity 0.1s, transform 0.4s;
+}
+
+.navbar_close {
+  opacity: 0;
+}
