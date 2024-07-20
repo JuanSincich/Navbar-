@@ -1,33 +1,51 @@
+/* ------------- variables ------------- */
 :root {
   --header-height: 3.5rem;
 
   /* ------------- colors ------------- */
-  --black-color: #222222;
+  --black-color: hsl(220, 24%, 12%);
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
   --white-color: #fff;
+  --body-color: hsl(220, 100%, 97%);
 
   /* ------------- fonts ------------- */
   --body-font: "Montserrat", sans-serif;
+  --normal-font-size: 0.938rem;
   /* ------------- font weigth ------------- */
   --font-semi-bold: 600;
-  --body-font: "Montserrat", sans-serif;
+
   /* ------------- z-index ------------- */
+  --z-tooltip: 10;
   --z-fixed: 100;
 }
+/* ------------- base ------------- */
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  list-style: none;
-  text-decoration: none;
 }
 
 body {
   font-family: var(--body-font);
   font-size: 1rem;
+  background-color: var(--body-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* ------------- css reusable classes ------------- */
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
 
 /* ------------- header ------------- */
 .header {
@@ -36,7 +54,7 @@ body {
   left: 0;
   width: 100%;
   background-color: var(--black-color);
-  box-shadow: 0 16px 16px hsla(220, 32%, 8%, 0.3);
+  box-shadow: 0 2px 16px hsla(220, 32%, 8%, 0.3);
   z-index: var(--z-fixed);
 }
 /* ------------- navbar ------------- */
@@ -64,7 +82,7 @@ body {
   font-weight: initial;
   font-size: 1.25rem;
 }
-.nav_toggle {
+.navbar_toggle {
   position: relative;
   width: 32px;
   height: 32px;
@@ -84,4 +102,122 @@ body {
 
 .navbar_close {
   opacity: 0;
+}
+
+/* ------------- for mobile device ------------- */
+
+@media screen and (max-width: 1118px) {
+  .navbar_menu {
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top 0.4s, opacity 0.3s;
+  }
+
+  .navbar_menu::-webkit-scrollbar {
+    width: 0;
+  }
+  .navbar_list {
+    background-color: var(--black-color);
+    padding-top: 1rem;
+  }
+}
+
+.navbar_link {
+  color: var(--white-color);
+  background-color: var(--black-color);
+  font-weight: var(--font-semi-bold);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.navbar_link:hover {
+  background-color: var(--black-color-light);
+}
+
+/*  show menu  */
+.show-menu {
+  opacity: 1;
+  top: 3.5rem;
+  pointer-events: initial;
+}
+
+/*  show icon  */
+
+.show-icon .navbar_burger {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.show-icon .navbar_close {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* ------------- dropdown ------------- */
+
+.dropdown_item {
+  cursor: pointer;
+}
+
+.dropdown_arrow {
+  font-size: 1.25rem;
+  font-weight: initial;
+  transition: transform 0.4s;
+}
+
+.dropdown_link,
+.dropdown_sublink {
+  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+  color: var(--white-color);
+  background-color: var(--black-color-light);
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-weight: var(--font-semi-bold);
+  transition: background-color 0.3s;
+}
+
+.dropdown_link i,
+dropdown_sublink i {
+  font-size: 1.25rem;
+  font-weight: initial;
+}
+
+.dropdown_link:hover,
+.dropdown_sublink:hover {
+  background-color: var(--black-color);
+}
+
+.dropdown_menu,
+.dropdown_submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height.4s ease-out;
+}
+
+.dropdown_item:hover .dropdown_menu,
+.dropdown_subitem:hover > .dropdown_submenu {
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in;
+}
+
+.dropdown_item:hover .dropdown_arrow {
+  transform: rotate(180deg);
+}
+
+/* ------------- dropdown 1 submenu ------------- */
+dropdown_add {
+  margin-left: auto;
+}
+
+.dropdown_sublink {
+  background-color: var(--black-color-lighten);
 }
